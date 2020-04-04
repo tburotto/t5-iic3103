@@ -1,0 +1,41 @@
+<div class="card" style="margin: 20px;" >
+    <div class="card-header">
+        <div class="media">
+            <img class="mr-3" src=<%= @character["image"] %>  alt="Generic placeholder image">
+            <div class="media-body">
+                <h1 class="mt-0"><%= @character["name"]%> </h1>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+    
+        <h4> <i class="fa fa-venus-mars"> </i> Genero </h4>
+        <p> <%= @character["gender"]%> </p>
+        <h4> <i class="fa fa-stethoscope"> </i> Estado </h4>
+        <p> <%= @character["status"]%> </p>
+        <h4> <i class="fa fa-globe"> </i> Origen </h4>
+        <%  if @character["origin"]["name"] == "unknown"%>
+          <p> Desconocido </p>
+        <% else %>
+          <p> <%= link_to  @character["origin"]["name"], "/locations/"+@character["origin"]["url"].delete("https://rickandmortyapi.com/api/location/").to_s %></p>
+        <% end %>
+        <h4> <i class="fa fa-globe"> </i> Ubicacion </h4>
+        <%  if @character["location"]["name"] == "unknown"%>
+          <p> Desconocido </p>
+        <% else %>
+          <p> <%= link_to  @character["location"]["name"], "/locations/"+@character["location"]["url"].delete("https://rickandmortyapi.com/api/location/").to_s %></p>
+        <% end %>
+        <h4> <i class="fa fa-film"> </i> Episodios donde Aparece </h4>
+        <table class="table table-striped">
+            <thead>
+                <th scope="col"> Episodio </th> 
+            </thead>
+            <tbody>
+            <% @episodes.each do |episode| %>
+                <tr> <td> <i class="fa fa-video"> </i>  <%= link_to  episode["name"], "/chapters/"+episode["id"].to_s %></td> </tr>
+            <% end %>
+        </tbody>
+        </table>
+    </div>
+  </div>
+</div>

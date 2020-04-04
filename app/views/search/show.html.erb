@@ -1,0 +1,57 @@
+<div class="card" style="margin: 20px;" >
+    <div class="card-header">
+
+        <h1 class="text-center"> Busqueda: <%= @search %> </h1>
+    </div>
+    <div class="card-body">
+        <h4> <i class="fa fa-film"> </i> Episodios (<%= @episodes.length() %>)</h4>
+        <table class="table table-striped">
+            <thead>
+                <th scope="col"> Episodio </th> 
+            </thead>
+            <tbody>
+            <% if @episodes != [] %>
+                <% @episodes.each do |episode| %>
+                    <tr> <td> <i class="fa fa-video"> </i>  <%= link_to  episode["name"], "/chapters/"+episode["id"].to_s %></td> </tr>
+                <% end %>
+            <% else %>
+              <tr>  <td> <i class = "fa fa-warning"></i> Sin resultados </td></tr>
+            <% end %>
+        </tbody>
+        </table>
+        <h4> <i class="fa fa-user"> </i> Personajes (<%= @characters.length() %>) </h4>
+        <table class="table table-striped">
+            <thead>
+                <th scope="col"> Personaje </th> 
+            </thead>
+            <tbody>
+            <% if @characters != [] %>
+                <% @characters.each do |episode| %>
+                    <tr> <td> <i class="fa fa-video"> </i>  <%= link_to  episode["name"], "/characters/"+episode["id"].to_s %></td> </tr>
+                <% end %>
+            <% else %>
+              <tr>  <td> <i class = "fa fa-warning"></i> Sin resultados </td></tr>
+            <% end %>
+        </tbody>
+        </table>
+
+        <h4> <i class="fa fa-globe"> </i> Ubicaciones (<%= @locations.length() %>)</h4>
+        <table class="table table-striped">
+            <thead>
+                <th scope="col"> ubicacion </th> 
+            </thead>
+            <tbody>
+            <% if @locations != [] %>
+                <% @locations.each do |episode| %>
+                    <tr> <td> <i class="fa fa-video"> </i>  <%= link_to  episode["name"], "/locations/"+episode["id"].to_s %></td> </tr>
+                <% end %>
+            <% else %>
+              <tr>  <td> <i class = "fa fa-warning"></i> Sin resultados </td></tr>
+            <% end %>
+        </tbody>
+        </table>
+    </div>
+      
+    </div>
+  </div>
+</div>

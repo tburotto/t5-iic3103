@@ -1,0 +1,12 @@
+
+<div class="card" style="margin: 20px;">
+  <div class="card-header">
+    <h2 class="text-center"> Episodios de Ricardo y Mortadela </h2>
+  </div>
+  <ul class="list-group list-group-flush">
+    <% @chapters.each do |chapter| %>
+        <li class="list-group-item"><i class="fa fa-film"></i> <%= link_to  chapter["name"], "/chapters/"+chapter["id"].to_s %>
+        <span class="float-right" ><i class="fa fa-info-circle"></i> <%= chapter["episode"]%><br> <i class="fa fa-calendar"></i> <%= chapter["air_date"]%> </span> </li>
+    <% end %>
+  </ul>
+</div>

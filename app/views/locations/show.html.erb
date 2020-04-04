@@ -1,0 +1,25 @@
+<div class="card" style="margin: 20px;" >
+    <div class="card-header">
+        <center>
+            <h2> <%= @location["name"]%> </h2>
+        </center>
+    </div>
+    <div class="card-body">
+        <h4> <i class="fa fa-globe"> </i> Tipo </h4>
+        <p> <%= @location["type"]%> </p>
+        <h4> <i class="fa fa-cube"> </i> Dimension  </h4>
+        <p> <%= @location["dimension"]%> </p>
+        <h4> <i class="fa fa-users"> </i> Residentes </h4>
+        <table class="table table-striped">
+            <thead>
+                <th scope="col"> Nombre </th> 
+            </thead>
+            <tbody>
+            <% @residents.each do |resident| %>
+                <tr> <td> <i class="fa fa-user"> </i>  <%= link_to  resident["name"], "/characters/"+resident["id"].to_s %></td> </tr>
+            <% end %>
+        </tbody>
+        </table>
+    </div>
+  </div>
+</div>

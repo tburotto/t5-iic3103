@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>T1- Rick y Mortadela</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-dark bg-dark justify-content-between">
+  <a class="navbar-brand" href= "/">Inicio</a>
+  <form class="form-inline" method="get" action="/search/show">
+    <input class="form-control mr-sm-2" type="search" placeholder="Busqueda" name="values">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><span> <i class="fa fa-search"> </i> Busqueda</button>
+  </form>
+</nav>
+
+    <%= yield %>
+  </body>
+  <footer>
+    <div class="card" style="margin: 20px;">
+      <div class="card-body">
+        <center>
+          Hecho por Tomás Burotto
+        </center>
+      </div>
+    </div>
+  </footer>
+</html>
