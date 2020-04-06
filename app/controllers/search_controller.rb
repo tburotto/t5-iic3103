@@ -4,7 +4,7 @@ class SearchController < ApplicationController
     @search = values
     str = values.gsub(" ","+")
 
-    episodes_results = JSON.parse HTTP.get("https://rickandmortyapi.com/api/episode/?name="+str)
+    episodes_results = JSON.parse HTTP.get("https://integracion-rick-morty-api.herokuapp.com/api/episode/?name="+str)
     if episodes_results["error"] == "There is nothing here"
       results_e = []
     else
@@ -17,7 +17,7 @@ class SearchController < ApplicationController
     end
     @episodes = results_e
 
-    characters_results = JSON.parse HTTP.get("https://rickandmortyapi.com/api/character/?name="+str)
+    characters_results = JSON.parse HTTP.get("https://integracion-rick-morty-api.herokuapp.com/api/character/?name="+str)
     if characters_results["error"] == "There is nothing here"
       results_c = []
     else
@@ -30,7 +30,7 @@ class SearchController < ApplicationController
     end
     @characters = results_c
 
-    locations_results = JSON.parse HTTP.get("https://rickandmortyapi.com/api/location/?name="+str)
+    locations_results = JSON.parse HTTP.get("https://integracion-rick-morty-api.herokuapp.com/api/location/?name="+str)
     if locations_results["error"] == "There is nothing here"
       results_l = []
     else
